@@ -95,12 +95,12 @@ namespace ChromaWrite
                     }*/
                     /*Если имя компонента из ListKeyComponents совпадает с компонентом из TargetLines
                       то записываем в массив printValues название компонента TargetLines[j, 2] и его 
-                      массовое содержание TargetLines[j, 3]*/
+                      массовое содержание TargetLines[j, 4]*/
                     for (int i = 0; i < ListKeyComponents.GetLength(0); i++)
                     {
                         try
                         {
-                            for (int j = 0; j < ListKeyComponents.GetLength(0); j++)
+                            for (int j = 0; j < TargetLines.GetLength(0); j++)
                             {
                                 if (ListKeyComponents[i, 1] == TargetLines[j, 2])
                                 {
@@ -252,6 +252,42 @@ namespace ChromaWrite
             }
             //Сохраняем документ и закрываем его      
             xlWbk.SaveAs(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
+            xlWbk.Close(true, Type.Missing, Type.Missing);
+            xlApp.Quit();
+        }
+        static void OpenExcelFile(string pathToList, out string[,] ListKeyComponents)
+        {
+            Excel.Application xlApp = new Excel.Application();
+            xlApp.DisplayAlerts = true;
+            Excel.Workbook xlWbk = xlApp.Workbooks.Open(pathToList, ReadOnly: false);
+            //открываем 3й лист - Хроматограммы
+            Excel.Worksheet xlWrkSht = xlWbk.Sheets[1];
+            int startId = 1;
+            int sizeOfMass = -1;
+
+            //определяем сколько строк используется для того, чтобы создать массив
+            while (true)
+            {
+                if (xlWrkSht.Cells[startId, 1].Value != null && xlWrkSht.Cells[startId, 2].Value != null)
+                    startId++;
+                else
+                    break;
+            }
+            sizeOfMass = startId - 1;
+            ListKeyComponents = new string[sizeOfMass, 2];
+            for (int i = 1; i <= ListKeyComponents.GetLength(0); i++)
+            {
+                try
+                {
+                    ListKeyComponents[i - 1, 0] = xlWrkSht.Cells[i, 1].Value.ToString();
+                    ListKeyComponents[i - 1, 1] = xlWrkSht.Cells[i, 2].Value;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            //Закрываем документ и выходим из приложения      
             xlWbk.Close(true, Type.Missing, Type.Missing);
             xlApp.Quit();
         }

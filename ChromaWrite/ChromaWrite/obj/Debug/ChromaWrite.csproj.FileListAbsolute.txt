@@ -6,3 +6,11 @@ C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\C
 C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.exe
 C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.pdb
 C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csproj.ResolveComReference.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.exe.config
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.exe
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.pdb
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csprojAssemblyReference.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csproj.ResolveComReference.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csproj.CoreCompileInputs.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.exe
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.pdb
