@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromaWrite", "ChromaWrite\ChromaWrite.csproj", "{3567412B-41E4-402C-A993-C2D8401FDD88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3567412B-41E4-402C-A993-C2D8401FDD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3567412B-41E4-402C-A993-C2D8401FDD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3567412B-41E4-402C-A993-C2D8401FDD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3567412B-41E4-402C-A993-C2D8401FDD88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7D17C8B-7367-4D9C-844C-6B395C2C0890}
+	EndGlobalSection
+EndGlobal

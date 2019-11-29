@@ -1,0 +1,8 @@
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.exe.config
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.exe
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\bin\Debug\ChromaWrite.pdb
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csprojAssemblyReference.cache
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csproj.CoreCompileInputs.cache
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.exe
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.pdb
+C:\Users\Хроматограф\source\repos\ChromaWrite\ChromaWrite\obj\Debug\ChromaWrite.csproj.ResolveComReference.cache
