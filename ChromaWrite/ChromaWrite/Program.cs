@@ -15,6 +15,19 @@ namespace ChromaWrite
         [STAThread]
         static void Main(string[] args)
         {
+            string pathToList="";
+            Console.WriteLine("Введите установку на которой вы заполняете режимный лист:"+"\n"+"Введите 7, для Р7" + "\n" + "Введите 8, для Р8");
+            int numOfPlant = int.Parse(Console.ReadLine());
+            switch (numOfPlant)
+            {
+                case 7:
+                    pathToList = Directory.GetCurrentDirectory() + "\\Список целевых компонентов Р-7";
+                    break;
+                case 8:
+                    pathToList = Directory.GetCurrentDirectory() + "\\Список целевых компонентов Р-8";
+                    break;
+            }
+            Console.WriteLine(pathToList);
             while (true)
             {
                 try
@@ -28,12 +41,13 @@ namespace ChromaWrite
                     //в эти переменные запишем индекс строк которые начинаются со слов "Название" и "Олефины"
                     int firstEnter = -1, secondEnter = -1, enterNumOne=-1;
                     //порядок в котором нужно вывести компоненты
-                    string[,] ListKeyComponents ={ { "1", "метан" }, { "2", "этан" }, { "3", "пропан" }, { "4", "i-бутан" },
+                    OpenExcelComponents(pathToList, out string[,] ListKeyComponents);
+                    /*string[,] ListKeyComponents ={ { "1", "метан" }, { "2", "этан" }, { "3", "пропан" }, { "4", "i-бутан" },
                                             { "5", "бутен-1" },{"6" , "n-бутан"},{"7" , "t-бутен-2"},{"8", "c-бутен-2" },
                                             { "9","2,2-диметилпропан" },{"10" , "i-пентан"},{"11", "n-пентан" },{"12", "c-пентен-2" },
                                             { "13" , "2,2-диметилбутан"},{"14","2,3-диметилбутан"},{"15" , "2-метилпентан"},{"16" , "3-метилпентан"},
-                                            {"17", "n-гексан"}};
-                    string[,] printValues = new string[17, 2];
+                                            {"17", "n-гексан"}};*/
+                    string[,] printValues = new string[ListKeyComponents.GetLength(0), 2];
                     //получаем индексы строк которые начинаются со слов "Название" и "Олефины"
                     for (int i = 0; i < lines.Length; i++)
                     {
@@ -61,7 +75,7 @@ namespace ChromaWrite
                     string numberOfExp = titleOfChroma.Substring(titleOfChroma.IndexOf('-') + 1, (titleOfChroma.IndexOf('-', titleOfChroma.IndexOf('-') - titleOfChroma.IndexOf('-'))));
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(titleOfChroma); //вывод названия хроматограммы консоль
-
+                    Console.WriteLine(Directory.GetCurrentDirectory());
                     /*создаём массив размерностью lines[secondEnter].Split(';').Length (столбцы, столько значений в строке)
                     на lines.Length-secondEnter] (строки), количество строк начала целевых данных, до конца массива*/
                     string[,] TargetLines = new string[lines.Length - secondEnter, lines[secondEnter].Split(';').Length + 1];
@@ -255,12 +269,12 @@ namespace ChromaWrite
             xlWbk.Close(true, Type.Missing, Type.Missing);
             xlApp.Quit();
         }
-        static void OpenExcelFile(string pathToList, out string[,] ListKeyComponents)
+        static void OpenExcelComponents(string pathToList, out string[,] ListKeyComponents)
         {
             Excel.Application xlApp = new Excel.Application();
             xlApp.DisplayAlerts = true;
             Excel.Workbook xlWbk = xlApp.Workbooks.Open(pathToList, ReadOnly: false);
-            //открываем 3й лист - Хроматограммы
+            //открываем 1й лист - Хроматограммы
             Excel.Worksheet xlWrkSht = xlWbk.Sheets[1];
             int startId = 1;
             int sizeOfMass = -1;
