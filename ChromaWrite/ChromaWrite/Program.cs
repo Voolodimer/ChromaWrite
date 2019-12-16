@@ -73,8 +73,9 @@ namespace ChromaWrite
                     string titleOfChroma = lines[0].Substring((lines[0].IndexOf('"', 17) + 1), (lines[0].LastIndexOf('"') - 1) - (lines[0].IndexOf('"', 17)));
                     //получаем номер эксперимента из названия хроматограммы
                     string numberOfExp = titleOfChroma.Substring(titleOfChroma.IndexOf('-') + 1, (titleOfChroma.IndexOf('-', titleOfChroma.IndexOf('-') - titleOfChroma.IndexOf('-'))));
+                    string nameOfPlant = titleOfChroma.Substring(0, titleOfChroma.IndexOf('-'));
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(titleOfChroma); //вывод названия хроматограммы консоль
+                    Console.WriteLine(titleOfChroma + " "+ nameOfPlant); //вывод названия хроматограммы консоль
                     Console.WriteLine(Directory.GetCurrentDirectory());
                     /*создаём массив размерностью lines[secondEnter].Split(';').Length (столбцы, столько значений в строке)
                     на lines.Length-secondEnter] (строки), количество строк начала целевых данных, до конца массива*/
@@ -172,7 +173,7 @@ namespace ChromaWrite
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
                     //составить путь к файлу использую переменную с номером опыта numberOfExp
-                    string path = @"G:\Мой диск\Электронные журналы\Р8\Р8-0" + numberOfExp + " режимный лист.xlsm";
+                    string path = @"G:\Мой диск\Электронные журналы\"+nameOfPlant+"\\"+nameOfPlant+"-"+ numberOfExp + " режимный лист.xlsm";
 
                     //string path = @"C:\Users\Хроматограф\Desktop\test.xlsx";
 
