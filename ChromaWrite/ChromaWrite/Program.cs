@@ -15,7 +15,7 @@ namespace ChromaWrite
         [STAThread]
         static void Main(string[] args)
         {
-            string pathToList="";
+            /*string pathToList="";
             Console.WriteLine("Введите установку на которой вы заполняете режимный лист:"+"\n"+"Введите 7, для Р7" + "\n" + "Введите 8, для Р8");
             int numOfPlant = int.Parse(Console.ReadLine());
             switch (numOfPlant)
@@ -27,7 +27,7 @@ namespace ChromaWrite
                     pathToList = Directory.GetCurrentDirectory() + "\\Список целевых компонентов Р-8";
                     break;
             }
-            Console.WriteLine(pathToList);
+            Console.WriteLine(pathToList);*/
             while (true)
             {
                 try
@@ -41,6 +41,13 @@ namespace ChromaWrite
                     //в эти переменные запишем индекс строк которые начинаются со слов "Название" и "Олефины"
                     int firstEnter = -1, secondEnter = -1, enterNumOne=-1;
                     //порядок в котором нужно вывести компоненты
+                    string titleOfChroma = lines[0].Substring((lines[0].IndexOf('"', 17) + 1), (lines[0].LastIndexOf('"') - 1) - (lines[0].IndexOf('"', 17)));
+                    //получаем номер эксперимента из названия хроматограммы
+                    int start_index = titleOfChroma.IndexOf('-') + 1;
+                    int end_index = titleOfChroma.IndexOf('-', start_index);
+                    string numberOfExp = titleOfChroma.Substring(start_index, end_index - start_index);
+                    string nameOfPlant = titleOfChroma.Substring(0, titleOfChroma.IndexOf('-'));
+                    string pathToList = Directory.GetCurrentDirectory() + "\\Список целевых компонентов "+nameOfPlant;
                     OpenExcelComponents(pathToList, out string[,] ListKeyComponents);
                     /*string[,] ListKeyComponents ={ { "1", "метан" }, { "2", "этан" }, { "3", "пропан" }, { "4", "i-бутан" },
                                             { "5", "бутен-1" },{"6" , "n-бутан"},{"7" , "t-бутен-2"},{"8", "c-бутен-2" },
@@ -70,10 +77,13 @@ namespace ChromaWrite
                         if (firstEnter < 0 | secondEnter < 0)
                         Console.WriteLine("Неправильно опоределены вхождения слова \"Название\" или \"Олефины\"");
                     //записываем в переменную string название хроматограммы
-                    string titleOfChroma = lines[0].Substring((lines[0].IndexOf('"', 17) + 1), (lines[0].LastIndexOf('"') - 1) - (lines[0].IndexOf('"', 17)));
+                    /*string titleOfChroma = lines[0].Substring((lines[0].IndexOf('"', 17) + 1), (lines[0].LastIndexOf('"') - 1) - (lines[0].IndexOf('"', 17)));
                     //получаем номер эксперимента из названия хроматограммы
                     string numberOfExp = titleOfChroma.Substring(titleOfChroma.IndexOf('-') + 1, (titleOfChroma.IndexOf('-', titleOfChroma.IndexOf('-') - titleOfChroma.IndexOf('-'))));
-                    string nameOfPlant = titleOfChroma.Substring(0, titleOfChroma.IndexOf('-'));
+                    string nameOfPlant = titleOfChroma.Substring(0, titleOfChroma.IndexOf('-'));*/
+
+
+
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(titleOfChroma + " "+ nameOfPlant); //вывод названия хроматограммы консоль
                     Console.WriteLine(Directory.GetCurrentDirectory());
@@ -121,7 +131,7 @@ namespace ChromaWrite
                                 {
                                     //Console.WriteLine(ListKeyComponents[i, 1] == TargetLines[j, 2]);
                                     printValues[i, 0] = TargetLines[j, 2];
-                                    printValues[i, 1] = TargetLines[j, 4];
+                                    printValues[i, 1] = TargetLines[j, 3];
                                     break;
                                 }
                             }
@@ -236,6 +246,8 @@ namespace ChromaWrite
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    xlWbk.Close(true, Type.Missing, Type.Missing);
+                    xlApp.Quit();
                 }
             }
             if (startId > 0)
@@ -263,6 +275,8 @@ namespace ChromaWrite
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    xlWbk.Close(true, Type.Missing, Type.Missing);
+                    xlApp.Quit();
                 }
             }
             //Сохраняем документ и закрываем его      
@@ -300,6 +314,8 @@ namespace ChromaWrite
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    xlWbk.Close(true, Type.Missing, Type.Missing);
+                    xlApp.Quit();
                 }
             }
             //Закрываем документ и выходим из приложения      
