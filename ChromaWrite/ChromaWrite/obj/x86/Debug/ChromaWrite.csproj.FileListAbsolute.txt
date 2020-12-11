@@ -1,0 +1,3 @@
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\x86\Debug\ChromaWrite.csprojAssemblyReference.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\x86\Debug\ChromaWrite.csproj.ResolveComReference.cache
+C:\Users\Хроматограф\Documents\GitHub\ChromaWrite\ChromaWrite\ChromaWrite\obj\x86\Debug\ChromaWrite.csproj.CoreCompileInputs.cache
